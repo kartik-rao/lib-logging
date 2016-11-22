@@ -1,6 +1,7 @@
-# How To 
+# ai-starter-typescript-web
 * * *
 
+###Instructions
 ####Create a new repository on github
 ####Replace new-project with repository name
 ####Run the following commands
@@ -15,4 +16,4 @@
     typings install dt~jasmine --global --save
     typings install npm~assertion-error --save
     git remote set-url origin git@github.com:adinfinity/new-project.git
-    npm update --save
+    npm install --save
