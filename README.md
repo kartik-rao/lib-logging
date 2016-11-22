@@ -1,7 +1,8 @@
 # How To 
 * * *
 
-####Replace new-project with project name 
+####Create a new repository on github
+####Replace new-project with repository name
 ####Run the following commands
 
     git clone --bare git@github.com:adinfinity/ai-starter-typescript-web
