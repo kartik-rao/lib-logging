@@ -1,0 +1,20 @@
+{
+  "name": "@adinfinity/ai-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node_modules/.bin/webpack-dev-server --content-base=public --hot"
+  },
+  "author": "Kartik Rao",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "ts-loader": "*",
+    "typescript": "*",
+    "wallaby-webpack": "*",
+    "webpack": "*",
+    "webpack-closure-compiler": "*",
+    "webpack-dev-server": "*"
+  }
+}
