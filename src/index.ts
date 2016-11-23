@@ -37,22 +37,22 @@ export class Logger implements ILogger {
 
     private logPrefix: string = "";
     private loghistory: any[] = [];
-    private severity: number = Logger.severity.warn;
+    private minseverity: number = Logger.severity.warn;
     private static __instance: Logger;
 
-    private constructor(prefix, severity) {
+    private constructor(prefix, minseverity) {
         if (prefix) {
             this.logPrefix = prefix;
         }
 
-        if (severity) {
-            this.severity = severity;
+        if (minseverity) {
+            this.minseverity = minseverity;
         }
     }
 
-    public static getInstance(prefix?: string, severity?: number) {
+    public static getInstance(prefix?: string, minseverity?: number) {
         if (!this.__instance) {
-            this.__instance = new Logger(prefix, severity);
+            this.__instance = new Logger(prefix, minseverity);
         }
         return this.__instance;
     }
@@ -111,7 +111,8 @@ export class Logger implements ILogger {
         if (args.length > 0) {
             args.unshift(`[${severityStr}]`);
             this.loghistory.unshift({ severity: severityStr, message: args });
-            if (severity <= this.severity && constants.HasConsoleLog) {
+
+            if (severity <= this.minseverity && constants.HasConsoleLog) {
                 this.writeToConsole(severityStr, ...args);
             }
         }
@@ -158,7 +159,7 @@ export class Logger implements ILogger {
 
     public dump(all: boolean = false) {
         this.loghistory.forEach((item) => {
-            if (all || item.severity === this.severityMap[this.severity]) {
+            if (all || Logger.severity[item.severity] <= this.minseverity) {
                 this.writeToConsole(item.severity, ...item.message);
             }
         });
