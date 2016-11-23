@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "compileOnSave": true, 
-        "sourceMap": true, 
         "target": "es5",
         "removeComments": true,
         "preserveConstEnums": true,

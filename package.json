@@ -1,8 +1,9 @@
 {
-  "name": "@adinfinity/ai-",
+  "name": "@adinfinity/ai-lib-logging",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "npm test",
     "start": "node_modules/.bin/webpack-dev-server --content-base=public --hot"

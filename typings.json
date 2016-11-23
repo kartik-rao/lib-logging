@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "assertion-error": "registry:npm/assertion-error#1.0.0+20160723033700"
+  }
+}
