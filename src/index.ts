@@ -156,10 +156,12 @@ export class Logger implements ILogger {
         return;
     }
 
-    public dump () {
-        for (var item of this.loghistory) {
-            this.writeToConsole(item.severity, ...item.message);
-        }
+    public dump(all: boolean = false) {
+        this.loghistory.forEach((item) => {
+            if (all || item.severity === this.severityMap[this.severity]) {
+                this.writeToConsole(item.severity, ...item.message);
+            }
+        });
         return;
     }
 
