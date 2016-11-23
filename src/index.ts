@@ -157,9 +157,10 @@ export class Logger implements ILogger {
         return;
     }
 
-    public dump(all: boolean = false) {
+    public dump(loglevel: number = this.minseverity) {
         this.loghistory.forEach((item) => {
-            if (all || Logger.severity[item.severity] <= this.minseverity) {
+            console.log(loglevel);
+            if (Logger.severity[item.severity] <= loglevel) {
                 this.writeToConsole(item.severity, ...item.message);
             }
         });
