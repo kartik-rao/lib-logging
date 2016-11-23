@@ -2,7 +2,10 @@ export declare class Constants {
     private static __instance;
     private constructor();
     static getInstance(): Constants;
-    readonly IsDebug: boolean;
+    readonly HasConsoleLog: (message?: any, ...optionalParams: any[]) => void;
+    readonly HasConsoleDir: (value?: any, ...optionalParams: any[]) => void;
+    readonly HasConsoleDirXml: (value: any) => void;
     readonly HasNativeISODate: boolean;
     readonly IsIE: boolean;
+    readonly IsSafari: boolean;
 }
