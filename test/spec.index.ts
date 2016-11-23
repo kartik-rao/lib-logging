@@ -3,10 +3,14 @@
 
 import { Logger } from '../src/index';
 
-describe('logger', () => { 
+describe('logger', () => {
+    let logger = Logger.getInstance();
+    beforeEach(() => {
+        logger.clear();
+    });
+
     describe('log', () => {
         it('should log a message to the console if severity > minSeverity', () => {
-            let logger : Logger = Logger.getInstance();
             logger.log(Logger.severity.debug, "part1", "part2", "part3");
             let history = logger.getLogHistory();
             expect(history.length).toBeGreaterThan(0);
@@ -17,7 +21,6 @@ describe('logger', () => {
 
     describe('info', () => {
         it('should log a message to the console if severity > minSeverity', () => {
-            let logger : Logger = Logger.getInstance();
             logger.info("part1", "part2", "part3");
             let history = logger.getLogHistory();
             expect(history.length).toBeGreaterThan(0);
@@ -27,9 +30,8 @@ describe('logger', () => {
         });
     });
 
-        describe('warn', () => {
+    describe('warn', () => {
         it('should log a message to the console if severity > minSeverity', () => {
-            let logger : Logger = Logger.getInstance();
             logger.warn("part1", "part2", "part3");
             let history = logger.getLogHistory();
             expect(history.length).toBeGreaterThan(0);
@@ -39,9 +41,9 @@ describe('logger', () => {
         });
     });
 
+
     describe('error', () => {
         it('should always log a message to the console', () => {
-            let logger : Logger = Logger.getInstance();
             logger.error("part1", "part2", "part3", "part4");
             let history = logger.getLogHistory();
             expect(history.length).toBeGreaterThan(0);
@@ -53,10 +55,35 @@ describe('logger', () => {
 
     describe('logger.dump', () => {
         it('should send a message to console.log', () => {
-            const logger : Logger = Logger.getInstance();
             logger.log(Logger.severity.warn, "test message");
-            let history = logger.getLogHistory();
-            expect(history.length).toBeGreaterThan(0);
+            spyOn(console, "log");
+            logger.dump();
+            expect(console.log).toHaveBeenCalled();
+        });
+    });
+
+    describe('logger.clear', () => {
+        it('should clear log history', () => {
+            logger.log(Logger.severity.warn, "test message");
+            expect(logger.getLogHistory().length).toEqual(1);
+            logger.clear();
+            expect(logger.getLogHistory().length).toEqual(0);
+        });
+    });
+
+    describe('logger.dir', () => {
+        it('should output an object using console.dir', () => {
+            spyOn(console, "dir");
+            logger.dir({a:1, b:2});
+            expect(console.dir).toHaveBeenCalled();
+        });
+    });
+
+    describe('logger.dirxml', () => {
+        it('should output an object using console.dir', () => {
+            spyOn(console, "dirxml");
+            logger.dirxml({a:1, b:2});
+            expect(console.dirxml).toHaveBeenCalled();
         });
     });
 });
