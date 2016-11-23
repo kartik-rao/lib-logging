@@ -29,7 +29,7 @@ export declare class Logger implements ILogger {
     error(...args: any[]): void;
     dir(obj: any): void;
     dirxml(obj: any): void;
-    dump(all?: boolean): void;
+    dump(loglevel?: number): void;
     clear(): void;
     getLogHistory(): any[];
 }
