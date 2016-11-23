@@ -110,7 +110,7 @@ export class Logger implements ILogger {
         }
         if (args.length > 0) {
             args.unshift(`[${severityStr}]`);
-            this.loghistory.unshift({ severity: severityStr, message: args });
+            this.loghistory.push({ severity: severityStr, message: args });
 
             if (severity <= this.minseverity && constants.HasConsoleLog) {
                 this.writeToConsole(severityStr, ...args);
@@ -159,7 +159,6 @@ export class Logger implements ILogger {
 
     public dump(loglevel: number = this.minseverity) {
         this.loghistory.forEach((item) => {
-            console.log(loglevel);
             if (Logger.severity[item.severity] <= loglevel) {
                 this.writeToConsole(item.severity, ...item.message);
             }
