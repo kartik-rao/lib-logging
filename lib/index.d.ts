@@ -1,12 +1,13 @@
 export interface ILogger {
-    log: (sev: number, ...args: any[]) => void;
-    dump: () => any[];
-    traceError: (err: string, tags: any) => void;
-    info: (...args: any[]) => void;
+    clear: () => void;
     debug: (...args: any[]) => void;
-    error: (...args: any[]) => void;
     dir: (obj: any) => void;
     dirxml: (obj: any) => void;
+    dump: () => void;
+    error: (...args: any[]) => void;
+    info: (...args: any[]) => void;
+    getLogHistory: () => any[];
+    log: (sev: number, ...args: any[]) => void;
 }
 export declare class Logger implements ILogger {
     static readonly severity: any;
@@ -28,6 +29,7 @@ export declare class Logger implements ILogger {
     error(...args: any[]): void;
     dir(obj: any): void;
     dirxml(obj: any): void;
-    dump: () => any[];
-    traceError: (message?: string, tags?: any) => void;
+    dump(): void;
+    clear(): void;
+    getLogHistory(): any[];
 }
