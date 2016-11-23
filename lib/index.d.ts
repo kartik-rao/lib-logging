@@ -15,10 +15,10 @@ export declare class Logger implements ILogger {
     readonly colors: any;
     private logPrefix;
     private loghistory;
-    private severity;
+    private minseverity;
     private static __instance;
-    private constructor(prefix, severity);
-    static getInstance(prefix?: string, severity?: number): Logger;
+    private constructor(prefix, minseverity);
+    static getInstance(prefix?: string, minseverity?: number): Logger;
     private pad;
     private getLocalTime;
     private writeToConsole(severity, ...args);
@@ -29,7 +29,7 @@ export declare class Logger implements ILogger {
     error(...args: any[]): void;
     dir(obj: any): void;
     dirxml(obj: any): void;
-    dump(): void;
+    dump(all?: boolean): void;
     clear(): void;
     getLogHistory(): any[];
 }
