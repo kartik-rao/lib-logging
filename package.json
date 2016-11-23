@@ -1,7 +1,7 @@
 {
   "name": "@adinfinity/ai-lib-logging",
   "version": "1.0.0",
-  "description": "",
+  "description": "Console logging library for the browser",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {

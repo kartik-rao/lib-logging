@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logger Test Page</title>
+</head>
+<body>
+  <script src="/assets/logger.js"></script>
+  <script>
+    window.logger = Logger.Logger.getInstance("VFA 4", 4);
+    logger.log(Logger.Logger.severity.warn, "testmessage", "foo", "bar", {a: 1});
+    logger.log(Logger.Logger.severity.debug, "testmessage", "foo", "bar");
+  </script>
+</body>
+</html>

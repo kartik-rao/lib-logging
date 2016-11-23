@@ -9,7 +9,9 @@ module.exports = {
   output: {
     path: path.join(__dirname + '/lib'),
     publicPath: "/assets/",
-    filename: 'lib.js'
+    filename: 'logger.js',
+    libraryTarget: "var",
+    library: "Logger"
   },
   resolve: {
     extensions: ['', '.ts', '.js']
