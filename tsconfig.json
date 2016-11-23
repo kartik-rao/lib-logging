@@ -5,9 +5,15 @@
         "target": "es5",
         "removeComments": true,
         "preserveConstEnums": true,
-        "watch": true
+        "watch": true,
+        "declaration" : true,
+        "outDir": "./lib"
+
     }, 
     "files": [
 
+    ],
+    "exclude": [
+        "node_modules"
     ]
 }
