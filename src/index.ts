@@ -2,14 +2,15 @@ import { Constants } from './constants'
 let constants: Constants = Constants.getInstance();
 
 export interface ILogger {
-    log: (sev: number, ...args: any[]) => void;
-    dump: () => any[];
-    traceError: (err: string, tags: any) => void;
-    info: (...args: any[]) => void;
+    clear: () => void;
     debug: (...args: any[]) => void;
-    error: (...args: any[]) => void;
     dir: (obj: any) => void;
     dirxml: (obj: any) => void;
+    dump: () => void;
+    error: (...args: any[]) => void;
+    info: (...args: any[]) => void;
+    getLogHistory: () => any[];
+    log: (sev: number, ...args: any[]) => void;
 }
 
 export class Logger implements ILogger {
@@ -155,15 +156,19 @@ export class Logger implements ILogger {
         return;
     }
 
-    public dump = () => {
+    public dump () {
         for (var item of this.loghistory) {
-            this.writeToConsole.apply(this, item.message);
+            this.writeToConsole(item.severity, ...item.message);
         }
+        return;
+    }
+
+    public clear () {
+        this.loghistory = [];
+    }
+
+    public getLogHistory() {
         return this.loghistory;
     }
 
-    public traceError = (message: string = 'Unknown', tags: any = {}) => {
-        this.log(Logger.severity.error, message, tags);
-        return;
-    }
 }
