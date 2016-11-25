@@ -80,25 +80,33 @@ export class Logger implements ILogger {
         }
 
         args[0] = `${this.getLocalTime()} ${this.logPrefix} ${args[0]}`
-        let style = null;
-        if (!(constants.IsSafari == true)) {
-            style = this.colors[severity];
-            args[0] = "%c" + args[0];
-        }
+        let consoleTarget = window.console[severity] || window.console["log"];
 
-        let nonString = [];
-        args.forEach((item, i) => {
-            if (!(item.charCodeAt && item.substr) || !isNaN(parseFloat(item)) && isFinite(item)) {
-                nonString.push(item);
-                args[i] = "";
+        switch(args.length) {
+            case 1: {
+                consoleTarget(args[0]);
+                break;
             }
-        });
-
-        let stringToLog = args.join(" ");
-        window.console.log(stringToLog, style);
-        nonString.forEach((obj) => {
-            this.dir(obj);
-        });
+            case 2: {
+                consoleTarget(args[0], args[1]);
+                break;
+            }
+            case 3: {
+                consoleTarget(args[0], args[1], args[2]);
+                break;
+            }
+            case 4: {
+                consoleTarget(args[0], args[1], args[2], args[3]);
+                break;
+            }
+            case 5: {
+                consoleTarget(args[0], args[1], args[2], args[3], args[4]);
+                break;
+            }
+            default : {
+                consoleTarget(args[0], args[1], args[2], args[3], args[4]);
+            }
+        } 
         return;
     }
 

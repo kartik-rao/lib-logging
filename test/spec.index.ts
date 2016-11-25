@@ -56,9 +56,9 @@ describe('logger', () => {
     describe('logger.dump', () => {
         it('should send a message to console.log', () => {
             logger.log(Logger.severity.warn, "test message");
-            spyOn(console, "log");
+            spyOn(console, "warn");
             logger.dump(Logger.severity.debug);
-            expect(console.log).toHaveBeenCalled();
+            expect(console.warn).toHaveBeenCalled();
         });
     });
 
