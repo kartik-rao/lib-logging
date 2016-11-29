@@ -58,7 +58,7 @@ export class Logger implements ILogger {
     }
 
     private pad = (n: number) => {
-        return n < 10 ? `0${n}` : `${n + ""}`
+        return n < 10 ? "0" + n : n + "";
     }
 
     private getLocalTime = () => {
@@ -84,27 +84,23 @@ export class Logger implements ILogger {
 
         switch(args.length) {
             case 1: {
-                consoleTarget(args[0]);
+                consoleTarget.call(console, args[0]);
                 break;
             }
             case 2: {
-                consoleTarget(args[0], args[1]);
+                consoleTarget.call(console, args[0], args[1]);
                 break;
             }
             case 3: {
-                consoleTarget(args[0], args[1], args[2]);
+                consoleTarget.call(console, args[0], args[1], args[2]);
                 break;
             }
             case 4: {
-                consoleTarget(args[0], args[1], args[2], args[3]);
-                break;
-            }
-            case 5: {
-                consoleTarget(args[0], args[1], args[2], args[3], args[4]);
+                consoleTarget.call(console, args[0], args[1], args[2], args[3]);
                 break;
             }
             default : {
-                consoleTarget(args[0], args[1], args[2], args[3], args[4]);
+                consoleTarget.call(console, args[0], args[1], args[2], args[3], args[4]);
             }
         } 
         return;

@@ -4,7 +4,7 @@
 import { Logger } from '../src/index';
 
 describe('logger', () => {
-    let logger = Logger.getInstance();
+    let logger = Logger.getInstance('ai-lib-logging', 4);
     beforeEach(() => {
         logger.clear();
     });
@@ -27,6 +27,14 @@ describe('logger', () => {
             expect(history[0].severity).toEqual('info');
             // [info] part1 part2 part3
             expect(Object.keys(history[0].message).length).toEqual(4);
+        });
+        it('should log a message to the console if severity > minSeverity', () => {
+            logger.info("part1");
+            let history = logger.getLogHistory();
+            expect(history.length).toBeGreaterThan(0);
+            expect(history[0].severity).toEqual('info');
+            // [info] part1 part2 part3
+            expect(Object.keys(history[0].message).length).toEqual(2);
         });
     });
 
