@@ -1,8 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-var ClosureCompilerPlugin = require('webpack-closure-compiler');
-var webpack = require('webpack');
-var path = require('path');
 
 module.exports = {
   entry: path.join(__dirname, '/src/index.ts'),
@@ -10,7 +7,7 @@ module.exports = {
     path: path.join(__dirname + '/lib'),
     publicPath: "/assets/",
     filename: 'logger.js',
-    libraryTarget: "var",
+    libraryTarget: "this",
     library: "Logger"
   },
   resolve: {

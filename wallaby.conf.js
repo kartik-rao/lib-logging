@@ -9,7 +9,7 @@ module.exports = function (wallaby) {
       { pattern: 'src/**/*.ts', load: false }
     ],
     tests: [
-       { pattern: 'test/spec.index.ts', load: false }
+      { pattern: 'test/spec.**.ts', load: false }
     ],
     testFramework: 'jasmine',
     postprocessor: wallabyWebpack({}),
@@ -19,8 +19,8 @@ module.exports = function (wallaby) {
       console.log(require('path').join(__dirname, 'public'));
     },
     workers: {
-       initial: 6,
-       regular: 2
+      initial: 4,
+      regular: 4
     }
   };
 };

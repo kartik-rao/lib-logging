@@ -1,19 +1,12 @@
-# ai-starter-typescript-web
-* * *
+# ai-lib-logging
 
-###Instructions
-####Create a new repository on github
-####Replace new-project with repository name
-####Run the following commands
+#### Description
+ai-lib-logging is an abstraction over console logging, with support for all console methods.
 
-    git clone --bare git@github.com:adinfinity/ai-starter-typescript-web
-    cd ai-starter-typescript-web
-    git push --mirror git@github.com:adinfinity/new-project.git
-    cd ..
-    git clone git@github.com:adinfinity/new-project.git
-    cd new-project
-    typings install dt~node --global --save
-    typings install dt~jasmine --global --save
-    typings install npm~assertion-error --save
-    git remote set-url origin git@github.com:adinfinity/new-project.git
-    npm install --save
+#### Installation
+    npm install @adinfinity/ai-lib-logging --save
+
+#### Usage
+    import { Logger } from "@adinfinity/ai-lib-logging";
+    let logger: Logger = Logger.getInstance("log prefix", Logger.severity.info);
+    logger.info("A sample log entry");
