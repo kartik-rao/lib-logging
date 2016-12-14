@@ -124,7 +124,8 @@ export class Logger implements ILogger {
     }
 
     public debug(...args: any[]) {
-        this.log.apply(this, [Logger.severity.debug, ...args]);
+        let severity = constants.HasConsoleDebug ? Logger.severity.debug : Logger.severity.info;
+        this.log.apply(this, [severity, ...args]);
         return;
     }
 
