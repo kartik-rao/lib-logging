@@ -7,7 +7,7 @@ module.exports = {
     path: path.join(__dirname + '/lib'),
     publicPath: "/assets/",
     filename: 'logger.js',
-    libraryTarget: "this",
+    libraryTarget: "var",
     library: "Logger"
   },
   resolve: {

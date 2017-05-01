@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
-        "compileOnSave": true, 
         "target": "es5",
         "removeComments": true,
         "preserveConstEnums": true,
         "watch": true,
         "declaration" : true,
+        "declarationDir": "./",
         "outDir": "./lib"
 
     }, 
