@@ -5,9 +5,8 @@
         "preserveConstEnums": true,
         "watch": true,
         "declaration" : true,
-        "declarationDir": "./",
-        "outDir": "./lib"
-
+        "outDir": "./lib",
+        "noImplicitReturns": true
     }, 
     "files": [
         "src/index.ts"

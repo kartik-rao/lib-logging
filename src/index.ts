@@ -40,7 +40,7 @@ export class Logger implements ILogger {
     private minseverity: number = Logger.severity.warn;
     private static __instance: Logger;
 
-    private constructor(prefix, minseverity) {
+    private constructor(prefix: string, minseverity: number) {
         if (prefix) {
             this.logPrefix = prefix;
         }

@@ -3,8 +3,18 @@ export declare class Constants {
     private constructor();
     static getInstance(): Constants;
     readonly HasConsole: Console;
-    readonly HasConsoleLog: (message?: any, ...optionalParams: any[]) => void;
-    readonly HasConsoleDir: (value?: any, ...optionalParams: any[]) => void;
+    readonly HasConsoleLog: {
+        (message?: any, ...optionalParams: any[]): void;
+        (message?: any, ...optionalParams: any[]): void;
+    };
+    readonly HasConsoleDir: {
+        (value?: any, ...optionalParams: any[]): void;
+        (obj: any, options?: {
+            showHidden?: boolean;
+            depth?: number;
+            colors?: boolean;
+        }): void;
+    };
     readonly HasConsoleDebug: (message?: any, ...optionalParams: any[]) => void;
     readonly HasConsoleDirXml: (value: any) => void;
     readonly HasNativeISODate: boolean;
