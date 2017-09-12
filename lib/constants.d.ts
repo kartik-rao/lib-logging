@@ -1,3 +1,4 @@
+/// <reference types="node" />
 export declare class Constants {
     private static __instance;
     private constructor();
@@ -9,11 +10,7 @@ export declare class Constants {
     };
     readonly HasConsoleDir: {
         (value?: any, ...optionalParams: any[]): void;
-        (obj: any, options?: {
-            showHidden?: boolean;
-            depth?: number;
-            colors?: boolean;
-        }): void;
+        (obj: any, options?: NodeJS.InspectOptions): void;
     };
     readonly HasConsoleDebug: (message?: any, ...optionalParams: any[]) => void;
     readonly HasConsoleDirXml: (value: any) => void;

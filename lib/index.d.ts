@@ -17,7 +17,7 @@ export declare class Logger implements ILogger {
     private loghistory;
     private minseverity;
     private static __instance;
-    private constructor(prefix, minseverity);
+    private constructor();
     static getInstance(prefix?: string, minseverity?: number): Logger;
     private pad;
     private getLocalTime;
