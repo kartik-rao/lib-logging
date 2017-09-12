@@ -87,6 +87,14 @@ describe('logger', () => {
         });
     });
 
+    describe('logger.debug', () => {
+        it('should call console.debug', () => {
+            spyOn(console, "debug");
+            logger.debug({a:1, b:2});
+            expect(console.debug).toHaveBeenCalled();
+        });
+    });
+
     describe('logger.dirxml', () => {
         it('should output an object using console.dir', () => {
             spyOn(console, "dirxml");
