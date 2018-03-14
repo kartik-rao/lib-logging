@@ -7,9 +7,11 @@
 <body>
   <script src="/assets/logger.js"></script>
   <script>
-    window.logger = Logger.Logger.getInstance("VFA 4", 4);
-    logger.log(Logger.Logger.severity.warn, "testmessage", "foo", "bar", {a: 1});
-    logger.log(Logger.Logger.severity.debug, "testmessage", "foo", "bar");
+    window.logger = Logger.Logger.getInstance("ai-lib-logging", 4);
+    logger.log(Logger.Logger.severity.debug, "debug message", "foo", "bar");
+    logger.log(Logger.Logger.severity.info, "info message", "foo", "bar");
+    logger.log(Logger.Logger.severity.warn, "warn message", "foo", "bar", {a: 1});
+    logger.log(Logger.Logger.severity.error, "error message", "foo", "bar");
   </script>
 </body>
 </html>
