@@ -38,23 +38,15 @@ export class Logger implements ILogger {
     private logPrefix: string = "";
     private loghistory: any[] = [];
     private minseverity: number = Logger.severity.warn;
-    private static __instance: Logger;
+    private static __instances: any = {};
 
     private constructor(prefix: string, minseverity: number) {
-        if (prefix) {
-            this.logPrefix = prefix;
-        }
-
-        if (minseverity) {
-            this.minseverity = minseverity;
-        }
+        this.logPrefix = prefix;
+        this.minseverity = minseverity;
     }
 
-    public static getInstance(prefix?: string, minseverity?: number) {
-        if (!this.__instance) {
-            this.__instance = new Logger(prefix, minseverity);
-        }
-        return this.__instance;
+    public static getInstance(prefix: string="", minseverity: number = Logger.severity.warn) {
+        return new Logger(prefix, minseverity);
     }
 
     private pad = (n: number) => {
@@ -102,7 +94,7 @@ export class Logger implements ILogger {
             default : {
                 consoleTarget.call(console, args[0], args[1], args[2], args[3], args[4]);
             }
-        } 
+        }
         return;
     }
 
