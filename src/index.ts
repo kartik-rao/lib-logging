@@ -38,7 +38,6 @@ export class Logger implements ILogger {
     private logPrefix: string = "";
     private loghistory: any[] = [];
     private minseverity: number = Logger.severity.warn;
-    private static __instances: any = {};
 
     private constructor(prefix: string, minseverity: number) {
         this.logPrefix = prefix;

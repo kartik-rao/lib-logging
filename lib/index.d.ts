@@ -16,12 +16,11 @@ export declare class Logger implements ILogger {
     private logPrefix;
     private loghistory;
     private minseverity;
-    private static __instance;
     private constructor();
     static getInstance(prefix?: string, minseverity?: number): Logger;
     private pad;
     private getLocalTime;
-    private writeToConsole(severity, ...args);
+    private writeToConsole;
     log(severity: number, ...args: any[]): void;
     debug(...args: any[]): void;
     info(...args: any[]): void;
