@@ -13,11 +13,11 @@ export declare class Logger implements ILogger {
     static readonly severity: any;
     private severityMap;
     readonly colors: any;
-    private logPrefix;
+    private meta;
     private loghistory;
     private minseverity;
     private constructor();
-    static getInstance(prefix?: string, minseverity?: number): Logger;
+    static getInstance(meta: string[], minseverity?: number): Logger;
     private pad;
     private getLocalTime;
     private writeToConsole;

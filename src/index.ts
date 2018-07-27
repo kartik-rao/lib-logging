@@ -35,17 +35,17 @@ export class Logger implements ILogger {
         "debug": 'color: black',
     };
 
-    private logPrefix: string = "";
+    private meta: string[] = [];
     private loghistory: any[] = [];
     private minseverity: number = Logger.severity.warn;
 
-    private constructor(prefix: string, minseverity: number) {
-        this.logPrefix = prefix;
+    private constructor(meta: string[], minseverity: number=4) {
+        this.meta = [];
         this.minseverity = minseverity;
     }
 
-    public static getInstance(prefix: string="", minseverity: number = Logger.severity.warn) {
-        return new Logger(prefix, minseverity);
+    public static getInstance(meta: string[], minseverity: number = Logger.severity.warn) {
+        return new Logger(meta, minseverity);
     }
 
     private pad = (n: number) => {
@@ -70,7 +70,7 @@ export class Logger implements ILogger {
             return;
         }
 
-        args[0] = `${this.getLocalTime()} ${this.logPrefix} ${args[0]}`
+        args[0] = `${this.getLocalTime()} ${args[0]} ${this.meta.join(" ")} `
         let consoleTarget = window.console[severity] || window.console["log"];
 
         switch(args.length) {
