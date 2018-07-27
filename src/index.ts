@@ -40,7 +40,7 @@ export class Logger implements ILogger {
     private minseverity: number = Logger.severity.warn;
 
     private constructor(meta: string[], minseverity: number=4) {
-        this.meta = [];
+        this.meta = meta || [];
         this.minseverity = minseverity;
     }
 
@@ -70,7 +70,7 @@ export class Logger implements ILogger {
             return;
         }
 
-        args[0] = `${this.getLocalTime()} ${args[0]} ${this.meta.join(" ")} `
+        args[0] = `${this.getLocalTime()} ${args[0]} ${this.meta.join(" ")} `;
         let consoleTarget = window.console[severity] || window.console["log"];
 
         switch(args.length) {
@@ -105,7 +105,7 @@ export class Logger implements ILogger {
         }
         if (args.length > 0) {
             args.unshift(`[${severityStr}]`);
-            this.loghistory.push({ severity: severityStr, message: args });
+            this.loghistory.push({ severity: severityStr, meta: this.meta, message: args });
 
             if (severity <= this.minseverity && constants.HasConsoleLog) {
                 this.writeToConsole(severityStr, ...args);

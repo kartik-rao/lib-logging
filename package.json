@@ -1,6 +1,6 @@
 {
   "name": "@adinfinity/ai-lib-logging",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Console logging library for the browser",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "node_modules/.bin/webpack-dev-server --content-base=public --hot"
   },
   "author": "Kartik Rao",
-  "license": "UNLICENSED",
+  "license": "",
   "devDependencies": {
     "@types/jasmine": "^2.8.8",
     "@types/node": "^7.0.16",
