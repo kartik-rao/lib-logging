@@ -16,6 +16,7 @@ export declare class Logger implements ILogger {
     private meta;
     private loghistory;
     private minseverity;
+    private prefix;
     private constructor();
     static getInstance(meta: string[], minseverity?: number): Logger;
     private pad;

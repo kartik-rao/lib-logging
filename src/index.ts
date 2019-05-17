@@ -38,6 +38,7 @@ export class Logger implements ILogger {
     private meta: string[] = [];
     private loghistory: any[] = [];
     private minseverity: number = Logger.severity.warn;
+    private prefix : string = "";
 
     private constructor(meta: string[], minseverity: number=4) {
         this.meta = meta || [];
@@ -100,7 +101,7 @@ export class Logger implements ILogger {
     public log(severity: number, ...args: any[]) {
         let severityStr = this.severityMap[severity];
         if (!severityStr) {
-            this.writeToConsole.apply(this, [`[ai-lib-logging] severity ${severity} is not valid`]);
+            this.writeToConsole.apply(this, [`[lib-logging] severity ${severity} is not valid`]);
             return;
         }
         if (args.length > 0) {

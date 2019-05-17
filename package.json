@@ -1,23 +1,25 @@
 {
-  "name": "@adinfinity/ai-lib-logging",
+  "name": "@kartik-rao/lib-logging",
   "version": "1.5.1",
   "description": "Console logging library for the browser",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "cross-env NODE_ENV=development npm test",
     "start": "node_modules/.bin/webpack-dev-server --content-base=public --hot"
   },
   "author": "Kartik Rao",
-  "license": "",
+  "license": "UNLICENSED",
   "devDependencies": {
     "@types/jasmine": "^2.8.8",
     "@types/node": "^7.0.16",
-    "ts-loader": "^2.3.7",
+    "ts-loader": "^4.3.0",
     "ts-node": "^3.3.0",
-    "typescript": "^2.5.2",
-    "wallaby-webpack": "^0.0.39",
-    "webpack": "^3.5.6",
-    "webpack-closure-compiler": "^2.1.5",
-    "webpack-dev-server": "^2.7.1"
+    "typescript": "^3.3.3",
+    "cross-env": "^5.1.6",
+    "wallaby-webpack": "^3.9.9",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^3.2.3",
+    "webpack-closure-compiler": "^2.1.6",
+    "webpack-dev-server": "^3.3.1"
   }
 }

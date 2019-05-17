@@ -1,7 +1,7 @@
 import { Logger } from '../src/index';
 
 describe('logger', () => {
-    let logger = Logger.getInstance(['ai-lib-logging', "prefix"], 4);
+    let logger = Logger.getInstance(['lib-logging', "prefix"], 4);
     beforeEach(() => {
         logger.clear();
     });
